@@ -20,4 +20,6 @@ SUBDIRS += \
     multiprogress \
     overlay \
     messagelog \
-    overview
+    overview \
+    groupingmodel \
+    widgetdelegatedemo

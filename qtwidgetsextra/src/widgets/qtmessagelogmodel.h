@@ -22,8 +22,8 @@ public:
     };
 
     explicit QtMessageLogModel(QObject *parent = Q_NULLPTR);
-    explicit QtMessageLogModel(uint maxSize, QObject *parent = Q_NULLPTR);
-    virtual ~QtMessageLogModel();
+    QtMessageLogModel(uint maxSize, QObject *parent = Q_NULLPTR);
+    ~QtMessageLogModel();
 
     // Header:
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;

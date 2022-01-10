@@ -1,6 +1,11 @@
 #include "qtsqlutils.h"
 #include <QObject>
 #include <QtSql>
+
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 #include <sql.h>
 #include <sqlext.h>
 #include <sqlucode.h>
@@ -34,10 +39,11 @@ QString QtSql::formatValue(const QVariant &value, QSqlDriver *driver)
     {
         QString ret;
         QTextStream ts(&ret);
-        QList<QVariant> lst = value.toList();
-        QList<QVariant>::const_iterator it = lst.begin();
+
+        const QList<QVariant> lst = value.toList();
+
         ts << "(";
-        for (; it != lst.end(); ++it) {
+        for (auto it = lst.cbegin(); it != lst.cend(); ++it) {
             ts << QtSql::formatValue(*it, driver);
             if (it != lst.end()-1)
                 ts << ",";
@@ -206,8 +212,8 @@ QString QtSql::driverName(const QString &driver)
     if (driver[0] == 'Q' || driver[0] == 'q')
         return driver.toUpper();
 
-    auto it = driverMapping.find(driver.toLower());
-    return (it != driverMapping.end() ? it.value() : "unknown");
+    auto it = driverMapping.constFind(driver.toLower());
+    return (it != driverMapping.cend() ? it.value() : "unknown");
 }
 
 QString QtSql::driverVendor(const QString &driver)
@@ -233,8 +239,10 @@ QString QtSql::driverVendor(const QString &driver)
     if (driver.isEmpty())
         return "Unknown Database Vendor";
 
-    for (const NamePair* it = driverMapping, *end = driverMapping + mappingSize; it != end; ++it) {
-        if (driver.startsWith(it->first)) {
+    for (const NamePair* it = driverMapping, *end = driverMapping + mappingSize; it != end; ++it)
+    {
+        if (driver.startsWith(it->first))
+        {
             QChar version = driver[driver.size()-1];
             if (version.isDigit())
                 return QString("%1(v%2)").arg(it->second).arg(version);

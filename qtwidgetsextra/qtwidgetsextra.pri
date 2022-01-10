@@ -2,7 +2,6 @@
 # Input
 HEADERS += \
     $$PWD/src/qtwidgetsextra.h \
-    $$PWD/src/painting/qtpainter.h \
     $$PWD/src/painting/qtcolorutils.h \
     $$PWD/src/painting/qtcolorpalette.h \
     $$PWD/src/mainwindow/qtdocktabbar.h \
@@ -32,7 +31,6 @@ HEADERS += \
     $$PWD/src/itemviews/models/qttextcodecmodel.h \
     $$PWD/src/itemviews/models/qtcolumnproxymodel.h \
     $$PWD/src/itemviews/models/qtcompositeproxymodel.h \
-    $$PWD/src/itemviews/models/qtcachingproxymodel.h \
     $$PWD/src/itemviews/models/qtvariantlistmodel.h \
     $$PWD/src/itemviews/models/qtcheckableproxymodel.h \
     $$PWD/src/itemviews/models/qtobjectlistmodel.h \
@@ -80,11 +78,20 @@ HEADERS += \
     $$PWD/src/widgets/qtoverviewwidget.h \
     $$PWD/src/widgets/qtbuttonlocker.h \
     $$PWD/src/widgets/qtslidebutton.h \
-    $$PWD/src/widgets/qtslidebutton_p.h
+    $$PWD/src/widgets/qtslidebutton_p.h \
+    $$PWD/src/widgets/qtslidecheckbox.h \
+    $$PWD/src/widgets/qtfloatingtoolbutton.h \
+    $$PWD/src/widgets/qtsnackbar.h \
+    $$PWD/src/widgets/qtcardwidget.h \
+    $$PWD/src/itemviews/models/qtrevertibleproxymodel.h \
+    $$PWD/src/itemviews/models/qtcachingproxymodel.h \
+    $$PWD/src/itemviews/models/qttreeproxymodel.h \
+    $$PWD/src/widgets/qtspinboxedit.h \
+    $$PWD/src/painting/qtpaintutils.h \
+    $$PWD/src/itemviews/delegates/qtwidgetitemdelegate.h
 
 
 SOURCES += \
-    $$PWD/src/painting/qtpainter.cpp \
     $$PWD/src/painting/qtcolorutils.cpp \
     $$PWD/src/painting/qtcolorpalette.cpp \
     $$PWD/src/painting/qtcolorpaletteformats.cpp \
@@ -113,7 +120,6 @@ SOURCES += \
     $$PWD/src/itemviews/models/qttablemodelexporter.cpp \
     $$PWD/src/itemviews/models/qttablemodelexporterfactory.cpp \
     $$PWD/src/itemviews/models/qttablemodelexporterdialog.cpp \
-    $$PWD/src/itemviews/models/qtcachingproxymodel.cpp \
     $$PWD/src/itemviews/models/qtvariantlistmodel.cpp \
     $$PWD/src/itemviews/models/qtcheckableproxymodel.cpp \
     $$PWD/src/itemviews/models/qtobjectlistmodel.cpp \
@@ -159,7 +165,17 @@ SOURCES += \
     $$PWD/src/widgets/qtmessagelogwidget.cpp \
     $$PWD/src/widgets/qtoverviewwidget.cpp \
     $$PWD/src/widgets/qtbuttonlocker.cpp \
-    $$PWD/src/widgets/qtslidebutton.cpp
+    $$PWD/src/widgets/qtslidebutton.cpp \
+    $$PWD/src/widgets/qtslidecheckbox.cpp \
+    $$PWD/src/widgets/qtfloatingtoolbutton.cpp \
+    $$PWD/src/widgets/qtsnackbar.cpp \
+    $$PWD/src/widgets/qtcardwidget.cpp \
+    $$PWD/src/itemviews/models/qtrevertibleproxymodel.cpp \
+    $$PWD/src/itemviews/models/qtcachingproxymodel.cpp \
+    $$PWD/src/itemviews/models/qttreeproxymodel.cpp \
+    $$PWD/src/widgets/qtspinboxedit.cpp \
+    $$PWD/src/painting/qtpaintutils.cpp \
+    $$PWD/src/itemviews/delegates/qtwidgetitemdelegate.cpp
 
 RESOURCES += \
     $$PWD/qtwidgetsextra.qrc

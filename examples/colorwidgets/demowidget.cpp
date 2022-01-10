@@ -26,7 +26,11 @@ DemoWidget::DemoWidget(QWidget *parent)
 
 
     QtColorButton* colorButton = new QtColorButton(this);
+    colorButton->setIconSize({48, 48});
+    colorButton->setGridWidth(colorButton->iconSize().width() * 5 + 3);
     colorButton->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    colorButton->setColor(Qt::white);
+    colorButton->updateMenu();
     insertWidget(colorButton);
 
     QtColorComboBox* colorCombo = new QtColorComboBox(this);
@@ -51,7 +55,7 @@ void DemoWidget::insertWidget(QWidget *w)
 {
     //layout->addRow(Qt::className(w), w);
     QHBoxLayout* itemLayout = new QHBoxLayout;
-    itemLayout->addWidget(new QLabel(Qt::className(w)));
+    itemLayout->addWidget(new QLabel(QtExtra::className(w)));
     itemLayout->addWidget(w, 1);
     layout->addLayout(itemLayout);
 }

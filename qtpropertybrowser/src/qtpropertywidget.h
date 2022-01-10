@@ -71,7 +71,7 @@ public:
     };
     Q_ENUM(SubmitPolicy)
 
-    QtPropertyWidget(QWidget *parent = 0);
+    explicit QtPropertyWidget(QWidget *parent = Q_NULLPTR);
     ~QtPropertyWidget();
 
     void setResource(QtAttributeResource* resource);
@@ -133,6 +133,9 @@ Q_SIGNALS:
     void propertyFilterChanged(const QString&);
     void classFilterChanged(const QString&);
     void propertyChanged(const QString& propertyName, const QVariant& value);
+
+protected:
+    void paintEvent(QPaintEvent* event);
 
 private:
     static bool isQObject(const QMetaObject* metaObject);
